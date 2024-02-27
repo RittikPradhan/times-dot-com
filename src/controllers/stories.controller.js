@@ -10,14 +10,16 @@ function fetchTimeStories(res) {
 }
 
 function parseStories(data) {
+  // console.log("Data ", data);
   const stories = [];
   let currentIndex = 0;
 
   for (let count = 0; count < 6; count++) {
     currentIndex = data.indexOf('<li class="latest-stories__item">', currentIndex);
+    // console.log("Current index: " + currentIndex);
     
     if (currentIndex === -1) {
-      break; // Exit the loop if no more stories are found
+      break;
     }
 
     const linkStart = data.indexOf('<a href="', currentIndex) + '<a href="'.length;
